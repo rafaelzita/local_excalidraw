@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Standalone Excalidraw</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body, #root {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+    }
+  </style>
+  <link rel="stylesheet" href="./local_excalidraw_files/index.css" />
+  <script>
+      window.name = "codesandbox";
+      window.EXCALIDRAW_ASSET_PATH = "./local_excalidraw_files/";
+  </script>
+  <!-- React & ReactDOM -->
+  <!-- <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script> -->
+  <script src="./local_excalidraw_files/react.production.min.js"></script>
+  <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script> -->
+  <script src="./local_excalidraw_files/react-dom.production.min.js"></script>
+  <!-- Excalidraw UMD bundle -->
+  <!-- <script src="https://unpkg.com/@excalidraw/excalidraw@0.19.4/dist/excalidraw.production.min.js"></script> -->
+  <script src="./local_excalidraw_files/excalidraw.production.min.js"></script>
+  <!-- https://unpkg.com/@excalidraw/excalidraw@0.17.5/dist/excalidraw-assets/vendor-677e88ca78c86bddf13d.js -->
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { Excalidraw } = window.ExcalidrawLib;
+
+    function App() {
+      const excalidrawRef = React.useRef(null);
+
+      return React.createElement('div', {
+        style: { height: "100vh", width: "100vw" }
+      }, React.createElement(Excalidraw, {
+        ref: excalidrawRef,
+        initialData: {
+          appState: {
+            viewBackgroundColor: "#ffffff"
+          }
+        }
+      }));
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+  </script>
+</body>
+</html>
